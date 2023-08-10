@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Página Principal</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard_styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Bem-vindo ao Sistema de Controle</h1>
+        <div class="options">
+            <div class="option">
+                <h2>Iniciar CheckList de Envio</h2>
+                <a href="#">Iniciar</a>
+            </div>
+            <div class="option">
+                <h2>Menu Cadastros</h2>
+                <ul>
+                    <li><a href="#">Cadastro de Lotes e Lacres</a></li>
+                    <li><a href="{{ url_for('cadastro_usuarios') }}">Cadastro de Usuários</a></li>
+                    <li><a href="{{ url_for('cadastro_lojas') }}">Cadastro de Lojas</a></li>
+                    <li><a href="{{ url_for('cadastro_veiculos') }}">Cadastro de Veículos</a></li>
+                    <li><a href="{{ url_for('cadastro_conferentes') }}">Cadastro de Conferentes</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
