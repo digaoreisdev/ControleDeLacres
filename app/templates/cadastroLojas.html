@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastro de Lojas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='cadastro_styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Cadastro de Lojas</h1>
+        <form method="POST" action="cadastro_lojas">
+            <input type="text" name="nome" placeholder="Loja" required>
+            <input type="text" name="endereco" placeholder="Enreceço Origem" required>
+            <input type="text" name="email" placeholder="Email Loja" required>
+            
+            <button type="submit">Cadastrar</button>
+            <li><a href="{{ url_for('dashboard', nivel='padrao') }}">Página Inicial</a></li>
+        </form>
+    </div>
+</body>
+</html>
