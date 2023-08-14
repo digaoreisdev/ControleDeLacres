@@ -88,6 +88,52 @@ def cadastro_lojas():
 
     return render_template('cadastroLojas.html')
 
+# Rota para cadastrar veiculos
+@app.route('/cadastro_veiculos', methods=['GET', 'POST'])
+def cadastro_veiculos():
+    if request.method == 'POST':
+        placa = request.form['placa']
+        modelo = request.form['modelo']
+                
+        # Conectar-se ao banco de dados
+        conn = sqlite3.connect(DATABASE)
+        cursor = conn.cursor()
+        
+        # Inserir a novo veiculo na tabela de veiculos
+        cursor.execute("INSERT INTO veiculos (placa, modelo) VALUES (?, ?)",
+                       (placa, modelo))
+        
+        # Confirmar a inserção e fechar a conexão
+        conn.commit()
+        conn.close()
+        
+        return redirect(url_for('dashboard', nivel='administrador'))  # Redirecionar para o dashboard
+
+    return render_template('cadastroVeiculos.html')
+
+# Rota para cadastrar conferentes
+@app.route('/cadastro_conferentes', methods=['GET', 'POST'])
+def cadastro_conferentes():
+    if request.method == 'POST':
+        placa = request.form['placa']
+        modelo = request.form['modelo']
+                
+        # Conectar-se ao banco de dados
+        conn = sqlite3.connect(DATABASE)
+        cursor = conn.cursor()
+        
+        # Inserir a novo veiculo na tabela de veiculos
+        cursor.execute("INSERT INTO veiculos (placa, modelo) VALUES (?, ?)",
+                       (placa, modelo))
+        
+        # Confirmar a inserção e fechar a conexão
+        conn.commit()
+        conn.close()
+        
+        return redirect(url_for('dashboard', nivel='administrador'))  # Redirecionar para o dashboard
+
+    return render_template('cadastroVeiculos.html')
+
 # Adicione outras rotas e lógica conforme necessário
 
 if __name__ == '__main__':
